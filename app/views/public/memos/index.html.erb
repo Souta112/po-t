@@ -1,0 +1,24 @@
+<h1 class="p-4">Memos#index</h1>
+
+<%= render 'profile', user: current_user %>
+
+<table class="table">
+ <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>memo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @memos.each do |memo| %>
+    <tr>
+    <td>
+      <%= link_to memo.title, memo_path(memo.id) %>
+    </td>
+    <td><%= memo.text %></td>
+    <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

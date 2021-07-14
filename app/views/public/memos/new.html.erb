@@ -1,0 +1,35 @@
+<%= form_with model: @memo, url:memos_path, local: true do |f| %>
+  <table class='table'>
+    <tr>
+      <td>
+        <%= f.label :タイトル %>
+        <%= f.text_field :title, class: "form-control name" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :メモ %>
+        <%= f.text_area :text, class: "form-control text" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%#= f.label :tag %>
+        <%#= f.collection_select(:genre_id, genres, :id, :name) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%#=# f.label :メモ公開 %>
+        <%#= #f.radio_button :all_reads, true %>公開
+        <%#= #f.radio_button :all_reads, false %>非公開
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.submit "create", class: 'btn btn-success' %>
+      </td>
+    </tr>
+
+  </table>
+<% end %>
