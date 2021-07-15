@@ -1,6 +1,6 @@
 class Public::MemosController < ApplicationController
   def index
-    @memos =  Memo.where(user_id: current_user.id)
+    @memos =  Memo.where(user_id: current_user.id)#自分の投稿一覧
 
   end
 
