@@ -1,0 +1,18 @@
+<table class = "table">
+ <thead>
+    <tr>
+      <th>imege</th>
+      <th>name</th>
+      <th>text</th>
+    <td>
+    <%= @user.name %>
+    </td>
+     <td>
+    <%= @user.introduction %>
+    </td>
+    <td><%= link_to "Destroy", admin_user_path(@user.id), method: :delete, class: "btn btn-sm btn-danger" %></td>
+
+    </tr>
+  </thead>
+  </tbody>
+</table>

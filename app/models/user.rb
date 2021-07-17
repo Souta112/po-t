@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :memos
+  has_many :memos, dependent: :destroy #関連しているものを消す
   attachment :image
 end
