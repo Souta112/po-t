@@ -15,14 +15,13 @@
     <tr>
       <td>
         <%#= f.label :tag %>
-        <%#= f.collection_select(:genre_id, genres, :id, :name) %>
       </td>
     </tr>
     <tr>
       <td>
-        <%#=# f.label :メモ公開 %>
-        <%#= #f.radio_button :all_reads, true %>公開
-        <%#= #f.radio_button :all_reads, false %>非公開
+        <p>メモ公開</p>
+        <%= f.radio_button :all_reads, true %>公開
+        <%= f.radio_button :all_reads, false %>非公開
       </td>
     </tr>
     <tr>

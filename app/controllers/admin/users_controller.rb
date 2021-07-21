@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  layouts :hoge
 
 def index
   @users = User.all
