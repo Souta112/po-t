@@ -26,6 +26,15 @@
     </tr>
     <tr>
       <td>
+     追記
+    <%= f.label :tag_list, 'タグ' %>
+br
+    <%= f.text_field :tag_list, value: @memo.tag_list.join(',') %>
+</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <%= f.submit "create", class: 'btn btn-success' %>
       </td>
     </tr>

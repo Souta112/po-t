@@ -11,6 +11,19 @@
      <td>
     <%= @memo.text %>
     </td>
+    
+    
+  <td>
+   <% if @memo.tags.present? %>
+     <% @memo.tags.each do |tag|  %>
+      <%#= link_to "#{tag.name}(#{tag.taggings_count})", tags_path(tag.name) %>
+      <%= "#{tag.name}(#{tag.taggings_count})" %>
+     <% end %>
+    <% else %>
+       <p> 登録されているタグはありません</p>
+    <% end %> 
+  </td>
+  
     <% if @memo.user_id == current_user.id %>
     <td><%= link_to "Edit", edit_memo_path(@memo.id), class: "btn btn-sm btn-success" %> </td>
     <td><%= link_to "Destroy", memo_path(@memo.id), method: :delete, class: "btn btn-sm btn-danger" %></td>

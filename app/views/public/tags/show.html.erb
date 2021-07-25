@@ -1,7 +1,3 @@
-<h1 class="p-4">Memos#index</h1>
-
-<%= render 'profile', user: current_user %>
-
 <table class="table">
  <thead>
     <tr>
@@ -11,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @memos.each do |memo| %>
+    <% @memo.each do |memo| %>
     <tr>
     <td>
       <%= link_to memo.title, memo_path(memo.id) %>

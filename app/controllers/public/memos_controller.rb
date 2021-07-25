@@ -1,11 +1,19 @@
 class Public::MemosController < ApplicationController
   def index
+    
+    #もしもパラムスにタグの情報があったならば
+    #タグに関連した情報を@memosに入れる
+    #if !params[:tag].nil?
+    #@memos =  Memo.where(tag_list: params[:tag])#自分の投稿一覧
+    #else
+    #タグに関連した情報がなければ通常のindex表示用のデータを取得する
     @memos =  Memo.where(user_id: current_user.id)#自分の投稿一覧
-
+    #end  
   end
 
   def show
     @memo = Memo.find(params[:id])
+    @tags = @memo.tag_counts_on(:tags)    # 投稿に紐付くタグの表示
   end
 
   def new
@@ -31,14 +39,14 @@ class Public::MemosController < ApplicationController
   def create
    @memo = Memo.new(memo_params)
    @memo.user_id = current_user.id #メモを作った時に作ったユーザーと紐づける保存（他人に見せない時に作成）
-   
+
    @memo.save
      redirect_to memos_path
   end
 
   private
   def memo_params
-   params.require(:memo).permit(:title, :text, :tags_id, :like_id, :all_reads)
+   params.require(:memo).permit(:title, :text, :tag_list, :like_id, :all_reads)
   end
 
 end
