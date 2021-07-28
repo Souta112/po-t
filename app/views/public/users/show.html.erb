@@ -6,17 +6,17 @@
   <thead>
     <tr>
       <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
+      <th>タイトル</th>
+      <th>メモ</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <% @memo.each do |memo| %>
-      <% if memo.all_reads  %>　<%#booleanのメモの見せるか見せないか>
+      <!--<% if memo.all_reads  %>　booleanのメモの見せるか見せないか-->
       <tr>
         <td>
-          <%#= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %>
+          <%= attachment_image_tag(memo.user,:image, :fill, 50, 50, fallback: "no_image.jpg") %>
 
         </td>
         <td><%= link_to memo.title, memo_path(memo.id) %></td>

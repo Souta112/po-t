@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :memos, dependent: :destroy #関連しているものを消す
   attachment :image
 
+ validates :name, presence: true
+
   # 検索方法分岐
   def self.looks(search, word)
     if search == "perfect_match"

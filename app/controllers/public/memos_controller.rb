@@ -40,8 +40,11 @@ class Public::MemosController < ApplicationController
    @memo = Memo.new(memo_params)
    @memo.user_id = current_user.id #メモを作った時に作ったユーザーと紐づける保存（他人に見せない時に作成）
 
-   @memo.save
+    if @memo.save
      redirect_to memos_path
+    else
+    render "new"
+    end
   end
 
   def destroy

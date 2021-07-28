@@ -1,8 +1,19 @@
+<% if @memo.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @memo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       
-  		<h1>Editing memo</h1>
+  		<h1>メモ編集</h1>
   <%= form_with model: @memo,local:true do |f| %>
   <div class="form-group">
     <%= f.label :タイトル %>
@@ -12,8 +23,18 @@
     <%= f.label :メモ %>
     <%= f.text_area :text, class: 'form-control memo_text' %>
   </div>
+   
+   <%= f.radio_button :all_reads, true %>公開
+   <%= f.radio_button :all_reads, false %>非公開
+        
+    <div class="form-group">
+     <%= f.label :tag_list, 'タグ' %>
+</br>
+    <%= f.text_field :tag_list, value: @memo.tag_list.join(',') %>
+  </div>
+    
   <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
+    <%= f.submit "編集", class: 'btn btn-success' %>
   </div>
 <% end %>
   		<%= link_to 'Show', memo_path(@memo), class: "memo_#{@memo.id}" %>

@@ -1,3 +1,14 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <div class="container">
 <div class="row">
 
@@ -5,13 +16,13 @@
 <h2>User info</h2>
 
  <%= form_with model: @user,local:true do |f| %>
- <%= f.label "Name" %><br>
+ <%= f.label "名前" %><br>
  <%= f.text_field :name,class: "form form-control" %><br>
 
- <%= f.label "Image" %><br>
+ <%= f.label "画像" %><br>
  <%= f.attachment_field :image %><br>
 
-  <%= f.label "Introduction" %><br>
+  <%= f.label "自己紹介" %><br>
   <%= f.text_area :introduction,class: "form form-control" %><br>
   <%= f.submit "Update User", class: "btn btn-secondary" %>
 <% end %>

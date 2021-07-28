@@ -1,15 +1,23 @@
-<table class='table'>
+<div class="w-25 p-1" style="background-color: #eee;">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+  
+<table class="card bg-dark text-white">
   <td><%= attachment_image_tag user, :image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
   <tr>
-	  <th>name</th>
+	  <td>name</td>
 	  <th><%= user.name %></th>
   </tr>
   <tr>
-	  <th>introduction</th>
+	  <td>introduction</td>
 	  <th><%= user.introduction %></th>
   </tr>
 </table>
 
 <div>
-  <%= link_to '編集',edit_user_path(user) %>
+  <%= link_to edit_user_path(user)do %>
+  <i class="fas fa-address-card"></i>
+  編集
+  <% end %>
+</div>
 </div>
