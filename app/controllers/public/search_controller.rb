@@ -4,7 +4,7 @@ class Public::SearchController < ApplicationController
   def index
     @range = params[:range]
 
-    if @range == "User"
+    if @range == "1"
       @users = User.looks(params[:search], params[:word])
     else
       @memos = Memo.looks(params[:search], params[:word])
@@ -14,6 +14,12 @@ class Public::SearchController < ApplicationController
     if params[:tag]
       @memo = Memo.tagged_with(params[:tag])
     end
+
+  #検索あれば検索結果ページに飛ばす
+    if !@range.nil?
+    render :action =>"search"
+    end
+
   end
 
   def search

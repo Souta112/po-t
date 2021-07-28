@@ -15,12 +15,14 @@
    <%= link_to ' ユーザー一覧',users_path %>
    <%= link_to ' メモ一覧',memos_path %>
    <%= link_to ' 検索',search_index_path %>
-   <%= link_to ' グループ作成',new_user_group_registration_path %>
+   <%#= link_to ' グループ作成',new_user_group_registration_path %>
    
 
 
  <% elsif admin_signed_in? %>
-    <%= form_tag(search_path, method: :get) do %>
+  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+  <%= link_to "ホーム", admin_users_path %>
+    <%= form_tag(admin_search_path, method: :get) do %>
       <%= select_tag 'range' ,options_for_select([['---選択してください---', ''], ['User', '1'], ['Memo', '2']]) %>
       <%= select_tag 'search', options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
       <%= text_field_tag (:word) %>

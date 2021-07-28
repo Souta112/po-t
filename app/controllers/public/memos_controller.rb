@@ -1,6 +1,6 @@
 class Public::MemosController < ApplicationController
   def index
-    
+
     #もしもパラムスにタグの情報があったならば
     #タグに関連した情報を@memosに入れる
     #if !params[:tag].nil?
@@ -8,7 +8,7 @@ class Public::MemosController < ApplicationController
     #else
     #タグに関連した情報がなければ通常のindex表示用のデータを取得する
     @memos =  Memo.where(user_id: current_user.id)#自分の投稿一覧
-    #end  
+    #end
   end
 
   def show
@@ -42,6 +42,11 @@ class Public::MemosController < ApplicationController
 
    @memo.save
      redirect_to memos_path
+  end
+
+  def destroy
+    Memo.find(params[:id]).delete
+    redirect_to memos_path
   end
 
   private

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 }
 
  namespace :admin do
-   resources :users
+  resources :users
   get "search" => "search#search"
   end
 
@@ -28,6 +28,7 @@ scope module: :public do
   resources :search , :only => [:index, :search]
   resources :tags
   resources :user_groups
+
   #devise_for :user_groups, controllers: {
    # sessions: 'user_groups/sessions',
     #passwords: 'user_groups/passwords',

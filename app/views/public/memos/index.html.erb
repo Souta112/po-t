@@ -1,4 +1,4 @@
-<h1 class="p-4">Memos#index</h1>
+<h1 class="p-4">メモの一覧</h1>
 
 <%= render 'profile', user: current_user %>
 
@@ -20,7 +20,7 @@
     <td>
     <% if memo.tags.present? %>
    <% memo.tags.each do |tag|  %>
-    <%#= link_to "#{tag.name}(#{tag.taggings_count})", tags_path(tag.name) %>
+ 
     <%= "#{tag.name}(#{tag.taggings_count})" %>
     <% end %>
   <% else %>
