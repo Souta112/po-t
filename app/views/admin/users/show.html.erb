@@ -8,7 +8,7 @@
  </thead>
  <tbody>
   <td>
-   <%= attachment_image_tag @user, :image,:fill, 40, 40, fallback: "no_image.jpg" %>
+   <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", size: '100x100' %>
   </td>
     <td>
     <%= @user.name %>

@@ -1,7 +1,7 @@
 <div class ="container px-5 px-sm-0">
 <div class ="row">
 <div class ="col-md-8 offset-md-1">
-  <h1>usershow</h1>
+  <h1>詳細</h1>
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -16,7 +16,7 @@
       <!--<% if memo.all_reads  %>　booleanのメモの見せるか見せないか-->
       <tr>
         <td>
-          <%= attachment_image_tag(memo.user,:image, :fill, 50, 50, fallback: "no_image.jpg") %>
+          <%= attachment_image_tag(memo.user,:image, fallback: "no_image.jpg", size: '100x100') %>
 
         </td>
         <td><%= link_to memo.title, memo_path(memo.id) %></td>
