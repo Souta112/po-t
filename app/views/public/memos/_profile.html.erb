@@ -1,16 +1,20 @@
 <div class="w-25 p-1" style="background-color: #eee;">
-  
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
-  
+
 <table class="card bg-dark text-white">
-  <td><%= attachment_image_tag user, :image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
   <tr>
-	  <td>name</td>
-	  <th><%= user.name %></th>
+    <td colspan="2">
+      <%= attachment_image_tag user, :image, fallback: "no_image.jpg", size: '100x100' %>
+    </td>
   </tr>
   <tr>
-	  <td>introduction</td>
-	  <th><%= user.introduction %></th>
+	  <th>name</th>
+	  <td><%= user.name %></td>
+  </tr>
+  <tr>
+	  <th>introduction</th>
+	  <td><%= user.introduction %></td>
   </tr>
 </table>
 
