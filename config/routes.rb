@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
- devise_for :admins, controllers: {
-  sessions: 'admins/sessions',
-  passwords: 'admins/passwords',
-
-}
+ devise_for :admins, skip: :registrations,#新規登録を飛ばす
+  controllers: {
+   sessions: 'admins/sessions',
+   passwords: 'admins/passwords',
+ #registrations: 'admins/registrations'
+ }
 
  namespace :admin do
   resources :users

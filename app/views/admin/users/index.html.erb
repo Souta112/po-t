@@ -6,8 +6,8 @@
 <table class="table">
  <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>写真</th>
+      <th>名前</th>
       <th></th>
     </tr>
   </thead>
@@ -15,13 +15,13 @@
     <% @users.each do |user| %>
     <tr>
     <td>
-      <%#= attachment_image_tag user, image,:fill, 40, 40, fallback: "no_image.jpg" %>
+      <%= attachment_image_tag user, :image,:fill, 40, 40, fallback: "no_image.jpg" %>
     </td>
     <td>
       <%= user.name %>
     </td>
     <td>
-      <%= link_to "Show", admin_user_path(user.id) %>
+      <%= link_to "詳細", admin_user_path(user.id) %>
     </td>
     </tr>
     <% end %>

@@ -13,42 +13,46 @@
   </head>
 <header>
  <% if user_signed_in? %>
-   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-   
+   <%= link_to destroy_user_session_path, method: :delete do %>
+    <i class="fas fa-sign-out-alt"></i>
+  ログアウト
+  <% end %>
    <%= link_to (new_memo_path)do %>
    <i class="far fa-file-alt"></i>
    メモ投稿
    <% end %>
-   
+
    <%= link_to (users_path)do %>
    <i class="far fa-user"></i>
    ユーザー一覧
    <% end %>
-   
+
    <%= link_to (memos_path)do %>
    <i class="fas fa-envelope-open-text"></i>
    メモ一覧
    <% end %>
-   
+
    <%= link_to (search_index_path)do %>
    <i class="fas fa-search-plus"></i>
    検索
    <% end %>
-   
+
    <%#= link_to ' グループ作成',new_user_group_registration_path %>
-   
+
 
 
  <% elsif admin_signed_in? %>
-  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-  
-  <%= link_to (admin_users_path)do %>
+  <%= link_to destroy_admin_session_path, method: :delete do %>
+  <i class="fas fa-sign-out-alt"></i>
+  ログアウト
+  <% end %>
+  <%= link_to (admin_users_path) do %>
   <i class="fas fa-home"></i>
   ホーム
   <% end %>
-  
+
     <%= form_tag(admin_search_path, method: :get) do %>
-      <%= select_tag 'range' ,options_for_select([['---選択してください---', ''], ['User', '1'], ['Memo', '2']]) %>
+      <%= select_tag 'range' ,options_for_select([['User', '1']]) %>
       <%= select_tag 'search', options_for_select([["完全一致","perfect_match"], ["部分一致","partial_match"]]) %>
       <%= text_field_tag (:word) %>
       <%= submit_tag "検索" %>
